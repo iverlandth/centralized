@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @member.first_name
+%p
+  %b Middle name:
+  = @member.middle_name
+%p
+  %b Last name:
+  = @member.last_name
+%p
+  %b Date of birth:
+  = @member.date_of_birth
+%p
+  %b Cellphone:
+  = @member.cellphone
+%p
+  %b Telephone:
+  = @member.telephone
+%p
+  %b Address:
+  = @member.address
+%p
+  %b Status:
+  = @member.status
+%p
+  %b Church:
+  = @member.church
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path

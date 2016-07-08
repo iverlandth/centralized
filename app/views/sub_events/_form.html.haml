@@ -1,0 +1,13 @@
+= simple_form_for(@sub_event) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :sub_event_start_at
+    = f.input :sub_event_end_at
+    = f.input :place
+    = f.association :event
+
+  .form-actions
+    = f.button :submit

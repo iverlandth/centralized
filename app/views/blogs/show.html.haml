@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @blog.title
+%p
+  %b Description:
+  = @blog.description
+%p
+  %b Event:
+  = @blog.event
+%p
+  %b Church:
+  = @blog.church
+%p
+  %b User:
+  = @blog.user
+
+= link_to 'Edit', edit_blog_path(@blog)
+\|
+= link_to 'Back', blogs_path

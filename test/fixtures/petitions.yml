@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  title: MyString
+  message: MyText
+  status: 1
+  church: one
+  user: one
+
+two:
+  category: MyString
+  title: MyString
+  message: MyText
+  status: 1
+  church: two
+  user: two

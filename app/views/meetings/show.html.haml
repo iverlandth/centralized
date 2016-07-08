@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @meeting.name
+%p
+  %b Type meeting:
+  = @meeting.type_meeting
+%p
+  %b Day:
+  = @meeting.day
+%p
+  %b Meeting start at:
+  = @meeting.meeting_start_at
+%p
+  %b Meeting end at:
+  = @meeting.meeting_end_at
+%p
+  %b Address:
+  = @meeting.address
+%p
+  %b Status:
+  = @meeting.status
+%p
+  %b Church:
+  = @meeting.church
+%p
+  %b User:
+  = @meeting.user
+
+= link_to 'Edit', edit_meeting_path(@meeting)
+\|
+= link_to 'Back', meetings_path

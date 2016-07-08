@@ -10,10 +10,106 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708211204) do
+ActiveRecord::Schema.define(version: 20160708223954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "event_id"
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["church_id"], name: "index_blogs_on_church_id", using: :btree
+    t.index ["event_id"], name: "index_blogs_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_blogs_on_user_id", using: :btree
+  end
+
+  create_table "churches", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.text     "mission"
+    t.text     "vision"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "event_start_at"
+    t.datetime "event_end_at"
+    t.text     "address"
+    t.integer  "status"
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["church_id"], name: "index_events_on_church_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type_meeting"
+    t.integer  "day"
+    t.datetime "meeting_start_at"
+    t.datetime "meeting_end_at"
+    t.text     "address"
+    t.integer  "status"
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["church_id"], name: "index_meetings_on_church_id", using: :btree
+    t.index ["user_id"], name: "index_meetings_on_user_id", using: :btree
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.date     "date_of_birth"
+    t.string   "cellphone"
+    t.string   "telephone"
+    t.text     "address"
+    t.integer  "status"
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["church_id"], name: "index_members_on_church_id", using: :btree
+    t.index ["user_id"], name: "index_members_on_user_id", using: :btree
+  end
+
+  create_table "petitions", force: :cascade do |t|
+    t.string   "category"
+    t.string   "title"
+    t.text     "message"
+    t.integer  "status"
+    t.integer  "church_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["church_id"], name: "index_petitions_on_church_id", using: :btree
+    t.index ["user_id"], name: "index_petitions_on_user_id", using: :btree
+  end
+
+  create_table "sub_events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "sub_event_start_at"
+    t.datetime "sub_event_end_at"
+    t.string   "place"
+    t.integer  "event_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["event_id"], name: "index_sub_events_on_event_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,6 +137,19 @@ ActiveRecord::Schema.define(version: 20160708211204) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "blogs", "churches"
+  add_foreign_key "blogs", "events"
+  add_foreign_key "blogs", "users"
+  add_foreign_key "events", "churches"
+  add_foreign_key "events", "users"
+  add_foreign_key "meetings", "churches"
+  add_foreign_key "meetings", "users"
+  add_foreign_key "members", "churches"
+  add_foreign_key "members", "users"
+  add_foreign_key "petitions", "churches"
+  add_foreign_key "petitions", "users"
+  add_foreign_key "sub_events", "events"
 end

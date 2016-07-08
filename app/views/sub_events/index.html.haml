@@ -1,0 +1,31 @@
+%h1 Listing sub_events
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Sub event start at
+      %th Sub event end at
+      %th Place
+      %th Event
+      %th
+      %th
+      %th
+
+  %tbody
+    - @sub_events.each do |sub_event|
+      %tr
+        %td= sub_event.name
+        %td= sub_event.description
+        %td= sub_event.sub_event_start_at
+        %td= sub_event.sub_event_end_at
+        %td= sub_event.place
+        %td= sub_event.event
+        %td= link_to 'Show', sub_event
+        %td= link_to 'Edit', edit_sub_event_path(sub_event)
+        %td= link_to 'Destroy', sub_event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sub event', new_sub_event_path

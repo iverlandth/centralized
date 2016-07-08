@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @church.name
+%p
+  %b Address:
+  = @church.address
+%p
+  %b Mission:
+  = @church.mission
+%p
+  %b Vision:
+  = @church.vision
+
+= link_to 'Edit', edit_church_path(@church)
+\|
+= link_to 'Back', churches_path

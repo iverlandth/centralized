@@ -1,0 +1,27 @@
+%h1 Listing churches
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Address
+      %th Mission
+      %th Vision
+      %th
+      %th
+      %th
+
+  %tbody
+    - @churches.each do |church|
+      %tr
+        %td= church.name
+        %td= church.address
+        %td= church.mission
+        %td= church.vision
+        %td= link_to 'Show', church
+        %td= link_to 'Edit', edit_church_path(church)
+        %td= link_to 'Destroy', church, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Church', new_church_path

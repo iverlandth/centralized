@@ -1,0 +1,31 @@
+%h1 Listing petitions
+
+%table
+  %thead
+    %tr
+      %th Category
+      %th Title
+      %th Message
+      %th Status
+      %th Church
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @petitions.each do |petition|
+      %tr
+        %td= petition.category
+        %td= petition.title
+        %td= petition.message
+        %td= petition.status
+        %td= petition.church
+        %td= petition.user
+        %td= link_to 'Show', petition
+        %td= link_to 'Edit', edit_petition_path(petition)
+        %td= link_to 'Destroy', petition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Petition', new_petition_path

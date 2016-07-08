@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type_meeting: MyString
+  day: 1
+  meeting_start_at: 2016-07-08 18:39:27
+  meeting_end_at: 2016-07-08 18:39:27
+  address: MyText
+  status: 1
+  church: one
+  user: one
+
+two:
+  name: MyString
+  type_meeting: MyString
+  day: 1
+  meeting_start_at: 2016-07-08 18:39:27
+  meeting_end_at: 2016-07-08 18:39:27
+  address: MyText
+  status: 1
+  church: two
+  user: two

@@ -3,4 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  enum rol: [:organizer, :leader, :warrior]
+
+  has_many :blogs
+  has_many :events
+  has_many :meetings
+  has_many :petitions
+  has_many :members
+
 end

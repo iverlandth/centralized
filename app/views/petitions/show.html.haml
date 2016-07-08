@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Category:
+  = @petition.category
+%p
+  %b Title:
+  = @petition.title
+%p
+  %b Message:
+  = @petition.message
+%p
+  %b Status:
+  = @petition.status
+%p
+  %b Church:
+  = @petition.church
+%p
+  %b User:
+  = @petition.user
+
+= link_to 'Edit', edit_petition_path(@petition)
+\|
+= link_to 'Back', petitions_path

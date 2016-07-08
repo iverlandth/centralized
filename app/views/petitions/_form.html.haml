@@ -1,0 +1,13 @@
+= simple_form_for(@petition) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :category
+    = f.input :title
+    = f.input :message
+    = f.input :status
+    = f.association :church
+    = f.association :user
+
+  .form-actions
+    = f.button :submit

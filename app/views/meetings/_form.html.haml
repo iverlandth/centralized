@@ -1,0 +1,16 @@
+= simple_form_for(@meeting) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :type_meeting
+    = f.input :day
+    = f.input :meeting_start_at
+    = f.input :meeting_end_at
+    = f.input :address
+    = f.input :status
+    = f.association :church
+    = f.association :user
+
+  .form-actions
+    = f.button :submit

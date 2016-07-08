@@ -1,0 +1,11 @@
+= simple_form_for(@church) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :address
+    = f.input :mission
+    = f.input :vision
+
+  .form-actions
+    = f.button :submit
