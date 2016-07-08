@@ -1,0 +1,33 @@
+FIRST VERSION BETA
+
+#()
+rails g scaffold church name address:text mission:text vision:text
+
+# include (all members of the church)
+rails g scaffold member first_name middle_name last_name date_of_birth:date cellphone telephone address:text status:integer references:church
+
+#(category= ORATION HELP )
+rails g scaffold petition category title message:text status:integer references:church references:user
+
+#(type_meeting= ORATION, MEETING YOUNG, ADORATION, FASTING)
+rails g scaffold meeting name type_meeting day:integer meeting_start_at:datetime meeting_end_at:datetime address:text status:integer references:church references:user
+
+rails g scaffold event name description event_start_at:datetime event_end_at:datetime address:text status:integer references:church references:user
+rails g scaffold sub_event name description sub_event_start_at:datetime sub_event_end_at:datetime place event:references
+
+rails g scaffold blog title description:string event:references references:church
+
+
+SECOND VERSION
+
+Add Pictures
+
+1.- add logo to church
+2.- add images to blog
+3.- add avatar to members
+4.- add poster and logo to event
+5.-
+
+
+BACKLOG
+
