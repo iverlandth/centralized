@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :churches
   scope "/:locale/:church_id" do
     resources :blogs
     resources :sub_events
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
     resources :meetings
     resources :petitions
     resources :members
-    resources :churches
+
   end
 
 

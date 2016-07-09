@@ -12,4 +12,12 @@ class User < ApplicationRecord
   has_many :petitions
   has_many :members
 
+  before_save :set_role
+
+  def set_role
+    unless rol.present?
+      self.rol = User.rols[:organizer]
+    end
+  end
+
 end
