@@ -30,6 +30,11 @@ class ChurchesController < ApplicationController
 
     respond_to do |format|
       if @church.save
+        unless current_user.church_id.present?
+          update_user = User.find(current_user.id)
+          update_user.church = @church
+          update_user.save!
+        end
         format.html { redirect_to @church, notice: 'Church was successfully created.' }
         format.json { render :show, status: :created, location: @church }
       else

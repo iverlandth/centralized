@@ -2,7 +2,7 @@ class PetitionsController < ApplicationController
   before_action :set_petition, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_filter :load_church
+  before_action :load_church
   # GET /petitions
   # GET /petitions.json
   def index

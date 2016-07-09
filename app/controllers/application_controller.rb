@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     if user_signed_in?
       church = Church.find(params[:church_id]) if params[:church_id]
-      if current_user.members.to_a.length > 1
-        church = Church.find(current_user.members.first.church_id)
+      if current_user.church_id.present?
+        church = Church.find(current_user.church_id)
         {locale: I18n.locale, church_id: church.id}.merge options
       else
         {locale: I18n.locale}.merge options
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   def load_church
     if user_signed_in?
       @church = Church.find(params[:church_id]) if params[:church_id]
-      @church = Church.find(current_user.members.first.church_id)
+      @church = Church.find(current_user.church_id)
     else
       redirect_to root_url
     end

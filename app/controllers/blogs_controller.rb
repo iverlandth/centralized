@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_filter :load_church
+  before_action :load_church
   # GET /blogs
   # GET /blogs.json
   def index

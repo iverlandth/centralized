@@ -1,18 +1,21 @@
-<% if  user_signed_in? && !current_user.members.to_a.length > 0 %>
-    <h1>
-      Ups aun no has creado tu iglesia:</h1>
-      <% @church = Church.new %>
-      <%= render 'churches/form' %>
+<% if user_signed_in? && !current_user.church.present? %>
+    <h2>
+      Ups aun no has creado tu iglesia:</h2>
+    <% @church = Church.new %>
+    <%= render 'churches/form' %>
+<% else %>
+    <div class="jumbotron">
+      <h1>Bienvenido a la Union de Iglesias Cristianas</h1>
+      <p>Aun no esta tu iglesia? registralo ahora</p>
+      <% if !current_user.church.present? %>
+      <p>
+        <%= link_to "Registrar mi iglesia", new_registration_path(User), class: 'btn btn-lg btn-primary', role: "button" %>
+        <br/>
+      </p>
+      <% end %>
+    </div>
 <% end %>
-<div class="jumbotron">
-  <h1>Bienvenido a la Union de Iglesias Cristianas</h1>
-  <p>Esta pagina esta en construccion, pronto tendremos mas noticias</p>
-  <p>Si quieres saber mas escribenos un correo a <b>iverlandth@gmail.com</b></p>
-  <p>
-    <%= link_to "Registrar mi iglesia", new_registration_path(User), class: 'btn btn-lg btn-primary', role: "button" %>
-    <br/>
-  </p>
-</div>
+
 
 
 

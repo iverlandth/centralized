@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_filter :load_church
+  before_action :load_church
   # GET /members
   # GET /members.json
   def index
@@ -27,6 +27,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
+    @member.church = @church
 
     respond_to do |format|
       if @member.save

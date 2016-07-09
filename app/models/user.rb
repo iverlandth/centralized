@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :meetings
   has_many :petitions
   has_many :members
+  belongs_to :church
 
   before_save :set_role
 
