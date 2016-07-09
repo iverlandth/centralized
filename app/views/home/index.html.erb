@@ -1,4 +1,4 @@
-<% unless user_signed_in? && current_user.members.to_a.length > 0 %>
+<% if  user_signed_in? && !current_user.members.to_a.length > 0 %>
     <h1>
       Ups aun no has creado tu iglesia:</h1>
       <% @church = Church.new %>
