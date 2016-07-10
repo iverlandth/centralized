@@ -5,13 +5,13 @@ class Event < ApplicationRecord
   has_many :blogs
   has_many :sub_events
 
-  validates :name, prensence: true
-  validates :description, prensence: true
-  validates :event_start_at, prensence: true
-  validates :event_end_at, prensence: true
-  validates :address, prensence: true
-  validates :status, prensence: true
-  validates :church_id, prensence: true
-  validates :user, prensence: true
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :event_start_at, presence: true
+  validates :event_end_at, presence: true
+  validates :address, presence: true
+  validates :status, presence: true
+  validates :church_id, presence: true
+  validates :user, presence: true
 
 end
