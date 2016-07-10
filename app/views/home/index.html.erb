@@ -1,21 +1,80 @@
-<% if user_signed_in? && !current_user.church.present? %>
-    <h2>
-      Ups aun no has creado tu iglesia:</h2>
-    <% @church = Church.new %>
-    <%= render 'churches/form' %>
-<% else %>
-    <div class="jumbotron">
-      <h1>Bienvenido a la Union de Iglesias Cristianas</h1>
-      <p>Aun no esta tu iglesia? registralo ahora</p>
-      <% if !current_user.church.present? %>
-      <p>
-        <%= link_to "Registrar mi iglesia", new_registration_path(User), class: 'btn btn-lg btn-primary', role: "button" %>
-        <br/>
-      </p>
-      <% end %>
+<section id="page-title" class="page-title-background" style="background-image: url('<%= "#{image_path('team-background.jpg')}" %>')">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="mainTitle title-white">Bienvenido a la Union de Iglesias Cristianas</h1>
+        <span class="mainDescription">
+        </span>
+      </div>
     </div>
-<% end %>
+  </div>
+</section>
+<section class="container-fluid container-fullw bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if user_signed_in? %>
+            <% if !current_user.church.present? %>
+                <h2> Ups aun no has creado tu iglesia:</h2>
+                <% @church = Church.new %>
+                <%= render 'churches/form' %>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-12">
+        <h2 class="text-center" data-appears-class="fadeInUp" data-appears-delay="300">Nuestra Comunidad</h2>
+        <hr/>
+        <p data-appears-delay="300" data-appears-class="fadeInDown" class="text-center">
+          Nulla consequat massa quis enim. <strong>Donec pede justo</strong> fringilla vel, aliquet nec, vulputate eget,
+          arcu.
+          <br>
+          In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+        </p>
+        <div class="row">
+          <div data-appears-group-delay="0" data-appears-delay-increase="200">
+            <ul class="team-list list-unstyled">
+              <% Church.all.each do |church| %>
+                  <li class="col-sm-3">
+                    <div class="opacity-0" data-appears-class="fadeIn">
+                      <div class="thumb icons-effect margin-bottom-15">
+                        <%= image_tag 'logo.jpg', class: 'img-responsive' %>
+                        <div class="mask">
+                          <div class="icons-wrapper">
+                            <div class="icons">
+                              <% if church.twitter_url.present? %>
+                                  <a class="icon" href="<%= church.twitter_url %>">
+                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span>
+                                  </a>
+                              <% end %>
+                              <% if church.facebook_url.present? %>
+                                  <a class="icon" href="<%= church.facebook_url %>">
+                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span>
+                                  </a>
+                              <% end %>
 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <h3><%= church.name %></h3>
+                      <div class="text-small margin-bottom-5">
+                        <%= church.state %>
+                      </div>
+                      <div class="team-member-description">
+                        <p class="text-dark">
+                          <%= church.address %>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 

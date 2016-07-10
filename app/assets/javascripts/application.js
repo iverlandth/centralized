@@ -14,4 +14,15 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require cable
+
+//= require bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min
+//= require bower_components/sticky-kit/jquery.sticky-kit.min
+//= require bower_components/jquery.appear.js/jquery.appear
+//= require bower_components/slick.js/slick/slick.min
+//= require bower_components/swiper/dist/js/swiper.jquery.min
+//= require bower_components/jquery.stellar/jquery.stellar.min
+//= require bower_components/countto/jquery.countTo
+//= require bower_components/magnific-popup/dist/jquery.magnific-popup.min
+//= require clip_assets/js/main
+//= require clip_assets/js/team

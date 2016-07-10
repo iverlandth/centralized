@@ -69,13 +69,14 @@ class ChurchesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_church
-      @church = Church.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_church
+    @church = Church.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def church_params
-      params.require(:church).permit(:name, :address, :mission, :vision)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def church_params
+    params.require(:church).permit(:name, :address, :mission, :vision, :country, :state, :latitude, :longitude,
+                                   :twitter_url, :facebook_url)
+  end
 end

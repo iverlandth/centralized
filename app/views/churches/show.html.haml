@@ -1,18 +1,29 @@
-%p#notice= notice
+%section.container-fluid.container-fullw.bg-white
+  .container
+    .row
+      .col-md-12
+        %p
+          %b Name:
+          = @church.name
+        %p
+          %b Address:
+          = @church.address
+        %p
+          %b Country:
+          = @church.country
+        %p
+          %b State:
+          = @church.state
+        %p
+          %b Mission:
+          = @church.mission
+        %p
+          %b Vision:
+          = @church.vision
+        %p
+          %b Twitter:
+          = @church.twitter_url
+        %p
+          %b Facebook:
+          = @church.facebook_url
 
-%p
-  %b Name:
-  = @church.name
-%p
-  %b Address:
-  = @church.address
-%p
-  %b Mission:
-  = @church.mission
-%p
-  %b Vision:
-  = @church.vision
-
-= link_to 'Edit', edit_church_path(@church)
-\|
-= link_to 'Back', churches_path

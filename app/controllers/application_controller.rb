@@ -30,11 +30,11 @@ class ApplicationController < ActionController::Base
   end
 
   def load_church
-    if user_signed_in?
+    if user_signed_in? && current_user.church_id.present?
       @church = Church.find(params[:church_id]) if params[:church_id]
       @church = Church.find(current_user.church_id)
     else
-      redirect_to root_url
+      @church = Church.none
     end
   end
 

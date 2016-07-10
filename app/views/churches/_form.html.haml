@@ -4,8 +4,12 @@
   .form-inputs
     = f.input :name
     = f.input :address
+    = f.input :country
+    = f.input :state
     = f.input :mission
     = f.input :vision
+    = f.input :twitter_url
+    = f.input :facebook_url
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn-success'
