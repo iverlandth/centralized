@@ -7,4 +7,6 @@ class Member < ApplicationRecord
   validates :last_name, presence: true
   validates :date_of_birth, presence: true
 
+  scope :my_members, ->(church_id) { where(church_id: church_id) }
+
 end

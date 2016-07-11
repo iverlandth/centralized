@@ -10,4 +10,11 @@ class Meeting < ApplicationRecord
   validates :status, presence: true
   validates :church, presence: true
   validates :user, presence: true
+
+  DATA_TYPE_MEETING = ['ORATION', 'MEETING YOUNG', 'ADORATION', 'FASTING']
+  DATA_DAY = [['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6], ['Sunday', 7]]
+
+  enum status: [:active, :inactive]
+  scope :my_meetings, ->(church_id) { where(church_id: church_id) }
+
 end

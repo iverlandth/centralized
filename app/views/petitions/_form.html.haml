@@ -2,12 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :category
+    = f.input :category, collection: Petition::DATA_PETITIONS
     = f.input :title
     = f.input :message
-    = f.input :status
-    = f.association :church
-    = f.association :user
+    - if action_name == 'edit' || action_name == 'update'
+      = f.input :status, collection: Petition.statuses.keys.to_a
 
   .form-actions
     = f.button :submit

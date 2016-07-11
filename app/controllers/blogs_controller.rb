@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.my_blogs(@church.id)
   end
 
   # GET /blogs/1
@@ -27,6 +27,8 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.church = @church
+    @blog.user = current_user
 
     respond_to do |format|
       if @blog.save

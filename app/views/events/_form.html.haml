@@ -7,9 +7,7 @@
     = f.input :event_start_at
     = f.input :event_end_at
     = f.input :address
-    = f.input :status
-    = f.association :church
-    = f.association :user
+    = f.input :status, collection: Event.statuses.keys.to_a
 
   .form-actions
     = f.button :submit

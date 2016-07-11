@@ -14,4 +14,8 @@ class Event < ApplicationRecord
   validates :church_id, presence: true
   validates :user, presence: true
 
+  enum status: [:active, :inactive]
+
+  scope :my_events, ->(church_id) { where(church_id: church_id) }
+
 end

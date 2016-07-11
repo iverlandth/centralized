@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :members
   belongs_to :church
 
+  scope :my_users, ->(church_id) { where(church_id: church_id) }
+
+
   before_save :set_role
 
   def set_role

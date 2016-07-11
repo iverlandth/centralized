@@ -9,4 +9,11 @@ class Petition < ApplicationRecord
   validates :church, presence: true
   validates :user, presence: true
 
+  DATA_PETITIONS = ['ORATION','HELP']
+
+  enum status: [:new, :viewed, :done], _suffix: true
+
+  scope :my_petitions, ->(church_id) { where(church_id: church_id) }
+
+
 end

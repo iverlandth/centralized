@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.my_events(@church.id)
   end
 
   # GET /events/1
@@ -27,6 +27,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.church = @church
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save

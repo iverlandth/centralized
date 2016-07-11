@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.my_meetings(@church.id)
   end
 
   # GET /meetings/1
@@ -27,6 +27,8 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.church = @church
+    @meeting.user = current_user
 
     respond_to do |format|
       if @meeting.save
