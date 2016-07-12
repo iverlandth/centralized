@@ -30,6 +30,11 @@ class ChurchesController < ApplicationController
 
     respond_to do |format|
       if @church.save
+        unless current_user.church_id.present?
+          update_user = User.find(current_user.id)
+          update_user.church = @church
+          update_user.save!
+        end
         format.html { redirect_to @church, notice: 'Church was successfully created.' }
         format.json { render :show, status: :created, location: @church }
       else
@@ -64,13 +69,14 @@ class ChurchesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_church
-      @church = Church.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_church
+    @church = Church.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def church_params
-      params.require(:church).permit(:name, :address, :mission, :vision)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def church_params
+    params.require(:church).permit(:name, :address, :mission, :vision, :country, :state, :latitude, :longitude,
+                                   :twitter_url, :facebook_url, :image_prev_url)
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708223954) do
+ActiveRecord::Schema.define(version: 20160712023716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,15 @@ ActiveRecord::Schema.define(version: 20160708223954) do
     t.text     "address"
     t.text     "mission"
     t.text     "vision"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "country"
+    t.string   "state"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
+    t.string   "image_prev_url"
   end
 
   create_table "events", force: :cascade do |t|
@@ -133,6 +140,8 @@ ActiveRecord::Schema.define(version: 20160708223954) do
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "church_id"
+    t.index ["church_id"], name: "index_users_on_church_id", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -152,4 +161,5 @@ ActiveRecord::Schema.define(version: 20160708223954) do
   add_foreign_key "petitions", "churches"
   add_foreign_key "petitions", "users"
   add_foreign_key "sub_events", "events"
+  add_foreign_key "users", "churches"
 end

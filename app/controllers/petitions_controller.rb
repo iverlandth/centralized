@@ -2,11 +2,11 @@ class PetitionsController < ApplicationController
   before_action :set_petition, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_filter :load_church
+  before_action :load_church
   # GET /petitions
   # GET /petitions.json
   def index
-    @petitions = Petition.all
+    @petitions = Petition.my_petitions(@church.id)
   end
 
   # GET /petitions/1
@@ -27,9 +27,12 @@ class PetitionsController < ApplicationController
   # POST /petitions.json
   def create
     @petition = Petition.new(petition_params)
+    @petition.church = @church
+    @petition.user = current_user
 
     respond_to do |format|
       if @petition.save
+        @petition.new!
         format.html { redirect_to @petition, notice: 'Petition was successfully created.' }
         format.json { render :show, status: :created, location: @petition }
       else

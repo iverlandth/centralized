@@ -3,14 +3,12 @@
 
   .form-inputs
     = f.input :name
-    = f.input :type_meeting
-    = f.input :day
+    = f.input :type_meeting, collection: Meeting::DATA_TYPE_MEETING
+    = f.input :day, collection: Meeting::DATA_DAY
     = f.input :meeting_start_at
     = f.input :meeting_end_at
     = f.input :address
-    = f.input :status
-    = f.association :church
-    = f.association :user
+    = f.input :status, collection: Meeting.statuses.keys.to_a
 
   .form-actions
     = f.button :submit

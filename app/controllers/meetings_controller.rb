@@ -2,11 +2,11 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_filter :load_church
+  before_action :load_church
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.my_meetings(@church.id)
   end
 
   # GET /meetings/1
@@ -27,6 +27,8 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.church = @church
+    @meeting.user = current_user
 
     respond_to do |format|
       if @meeting.save
