@@ -26,4 +26,7 @@
         %p
           %b Facebook:
           = @church.facebook_url
+        %p
+          %b Logo:
+          = image_tag(@church.logo_url(:thumbnail), :width => 50, :height => 50)
 

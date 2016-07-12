@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hms98usjw
+  api_key: '221567976716397'
+  api_secret: bD4XTKQJPw30B6lHeW7_kLgpxls
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hms98usjw
+  api_key: '221567976716397'
+  api_secret: bD4XTKQJPw30B6lHeW7_kLgpxls
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hms98usjw
+  api_key: '221567976716397'
+  api_secret: bD4XTKQJPw30B6lHeW7_kLgpxls
+  enhance_image_tag: true
+  static_image_support: false

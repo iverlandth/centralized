@@ -1,4 +1,4 @@
-= simple_form_for(@church) do |f|
+= simple_form_for(@church, html: { multipart: true }) do |f|
   = f.error_notification
 
   .form-inputs
@@ -11,6 +11,8 @@
     = f.input :twitter_url
     = f.input :facebook_url
     = f.input :image_prev_url
+    = f.input :logo_cache, as: :hidden
+    = f.input :logo
 
   .form-actions
     = f.button :submit, class: 'btn-success'
