@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1 class="mainTitle title-white">Bienvenido a la Union de Iglesias Cristianas</h1>
+        <h1 class="mainTitle title-white">Unificación de Iglesias Cristianas</h1>
         <span class="mainDescription">
         </span>
       </div>
@@ -16,7 +16,9 @@
         <% if user_signed_in? %>
             <% if !current_user.church.present? %>
                 <h2> Ups aun no has creado tu iglesia:</h2>
+
                 <% @church = Church.new %>
+                <h2>Crear mi Iglesia</h2>
                 <%= render 'churches/form' %>
             <% end %>
         <% end %>
@@ -25,10 +27,11 @@
         <h2 class="text-center" data-appears-class="fadeInUp" data-appears-delay="300">Nuestra Comunidad</h2>
         <hr/>
         <p data-appears-delay="300" data-appears-class="fadeInDown" class="text-center">
-          Nulla consequat massa quis enim. <strong>Donec pede justo</strong> fringilla vel, aliquet nec, vulputate eget,
-          arcu.
+          Creemos que Dios es nuestro Creador. Esta experiencia nos permite tomar conciencia de nuestro valor divino y
+          comprender nuestro lazo con las personas que nos rodean.
           <br>
-          In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+          Por eso buscamos establecer un una relación muy personal con El, que alimenta nuestra capacidad de amar a los
+          demás y alcanzar nuestro potencial.
         </p>
         <div class="row">
           <div data-appears-group-delay="0" data-appears-delay-increase="200">
