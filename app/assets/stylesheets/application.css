@@ -18,6 +18,7 @@
  *= require bower_components/swiper/dist/css/swiper.min
  *= require clip_assets/css/styles
  *= require clip_assets/css/plugins
+ *= require leaflet
  */
 
 .text-pink-shadow {

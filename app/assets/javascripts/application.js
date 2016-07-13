@@ -26,3 +26,5 @@
 //= require bower_components/magnific-popup/dist/jquery.magnific-popup.min
 //= require clip_assets/js/main
 //= require clip_assets/js/team
+
+//= require leaflet
