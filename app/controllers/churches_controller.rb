@@ -35,7 +35,7 @@ class ChurchesController < ApplicationController
           update_user.church = @church
           update_user.save!
         end
-        format.html { redirect_to @church, notice: 'Church was successfully created.' }
+        format.html { redirect_to @church, notice: I18n.t('church_created') }
         format.json { render :show, status: :created, location: @church }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class ChurchesController < ApplicationController
   def update
     respond_to do |format|
       if @church.update(church_params)
-        format.html { redirect_to @church, notice: 'Church was successfully updated.' }
+        format.html { redirect_to @church, notice: I18n.t('church_updated') }
         format.json { render :show, status: :ok, location: @church }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class ChurchesController < ApplicationController
   def destroy
     @church.destroy
     respond_to do |format|
-      format.html { redirect_to churches_url, notice: 'Church was successfully destroyed.' }
+      format.html { redirect_to churches_url, notice: I18n.t('church_destroyed') }
       format.json { head :no_content }
     end
   end

@@ -33,7 +33,7 @@ class PetitionsController < ApplicationController
     respond_to do |format|
       if @petition.save
         @petition.new!
-        format.html { redirect_to @petition, notice: 'Petition was successfully created.' }
+        format.html { redirect_to @petition, notice: I18n.t('petition_created') }
         format.json { render :show, status: :created, location: @petition }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class PetitionsController < ApplicationController
   def update
     respond_to do |format|
       if @petition.update(petition_params)
-        format.html { redirect_to @petition, notice: 'Petition was successfully updated.' }
+        format.html { redirect_to @petition, notice: I18n.t('petition_updated') }
         format.json { render :show, status: :ok, location: @petition }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class PetitionsController < ApplicationController
   def destroy
     @petition.destroy
     respond_to do |format|
-      format.html { redirect_to petitions_url, notice: 'Petition was successfully destroyed.' }
+      format.html { redirect_to petitions_url, notice: I18n.t('petition_destroyed') }
       format.json { head :no_content }
     end
   end

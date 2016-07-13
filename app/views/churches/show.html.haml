@@ -1,32 +1,33 @@
+- model_name = Church
 %section.container-fluid.container-fullw.bg-white
   .container
     .row
       .col-md-12
         %p
-          %b Name:
+          %b= model_name.human_attribute_name(:name)
           = @church.name
         %p
-          %b Address:
+          %b= model_name.human_attribute_name(:address)
           = @church.address
         %p
-          %b Country:
+          %b= model_name.human_attribute_name(:country)
           = @church.country
         %p
-          %b State:
+          %b= model_name.human_attribute_name(:state)
           = @church.state
         %p
-          %b Mission:
+          %b= model_name.human_attribute_name(:mission)
           = @church.mission
         %p
-          %b Vision:
+          %b= model_name.human_attribute_name(:vision)
           = @church.vision
         %p
-          %b Twitter:
+          %b= model_name.human_attribute_name(:twitter_url)
           = @church.twitter_url
         %p
-          %b Facebook:
+          %b= model_name.human_attribute_name(:facebook_url)
           = @church.facebook_url
         %p
-          %b Logo:
+          %b= model_name.human_attribute_name(:logo)
           = image_tag(@church.logo_url(:thumbnail), :width => 50, :height => 50)
 

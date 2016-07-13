@@ -30,7 +30,7 @@ class SubEventsController < ApplicationController
 
     respond_to do |format|
       if @sub_event.save
-        format.html { redirect_to @sub_event, notice: 'Sub event was successfully created.' }
+        format.html { redirect_to @sub_event, notice: I18n.t('sub_event_created') }
         format.json { render :show, status: :created, location: @sub_event }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class SubEventsController < ApplicationController
   def update
     respond_to do |format|
       if @sub_event.update(sub_event_params)
-        format.html { redirect_to @sub_event, notice: 'Sub event was successfully updated.' }
+        format.html { redirect_to @sub_event, notice: I18n.t('sub_event_updated') }
         format.json { render :show, status: :ok, location: @sub_event }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class SubEventsController < ApplicationController
   def destroy
     @sub_event.destroy
     respond_to do |format|
-      format.html { redirect_to sub_events_url, notice: 'Sub event was successfully destroyed.' }
+      format.html { redirect_to sub_events_url, notice: I18n.t('sub_event_destroyed') }
       format.json { head :no_content }
     end
   end

@@ -18,6 +18,491 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 es:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validación falló: %{errors}"
+        restrict_dependent_destroy:
+          has_one: No se puede eliminar el registro porque existe un %{record} dependiente
+          has_many: No se puede eliminar el registro porque existen %{record} dependientes
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+      birth: "%d/%m/%Y"
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      confirmation: no coincide
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      model_invalid: "La validación falló: %{errors}"
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      required: debe existir
+      taken: ya está en uso
+      too_long:
+        one: "es demasiado largo (1 carácter máximo)"
+        other: "es demasiado largo (%{count} caracteres máximo)"
+      too_short:
+        one: "es demasiado corto (1 carácter mínimo)"
+        other: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length:
+        one: "no tiene la longitud correcta (1 carácter exactos)"
+        other: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      other_than: debe ser distinto de %{count}
+    template:
+      body: 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million:
+            one: millón
+            other: millones
+          quadrillion: mil billones
+          thousand: mil
+          trillion:
+            one: billón
+            other: billones
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n %"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+      birth: "%d/%m/%Y"
+    pm: pm
+
+  activerecord:
+   models:
+    blog:
+      one: "Blog"
+      other: "Blogs"
+    church:
+      one: "Iglesia"
+      other: "Iglesias"
+    event:
+      one: "Evento"
+      other: "Eventos"
+    meeting:
+      one: "Reunion"
+      other: "Reuniones"
+    member:
+      one: "Miembro"
+      other: "Mienbros"
+    petition:
+      one: "Peticion"
+      other: "peticiones"
+    sub_event:
+      one: "Sub evento"
+      other: "Sub enventos"
+    user:
+      one: "Usuario"
+      other: "Usuarios"
+
+   attributes:
+    blog:
+      title: "Título"
+      description: "Descripción"
+      event: "Evento"
+      church: "Iglesia"
+      user: "Usuario"
+    church:
+      name: "Nombre"
+      address: "Dirección"
+      mission: "Mision"
+      vision: "Vision"
+      country: "Pais"
+      state: "Departamento"
+      latitude: "Latitud"
+      longitude: "Longitud"
+      twitter_url: "Twitter URL"
+      facebook_url: "Facebook URL"
+      logo: "Logotipo"
+    event:
+      name: "Nombre del evento"
+      description: "Descripción"
+      event_start_at: "Fecha de Inicion"
+      event_end_at: "FEcha de Finalización"
+      address: "Lugar del evento"
+      status: "Estado"
+      church: "Iglesia"
+      user: "Usuario"
+    meeting:
+      name: "Nombre"
+      type_meeting: "Tipo de reunión"
+      day: "Día"
+      meeting_start_at: "Hora de Inicio"
+      meeting_end_at: "Hora de Finalización"
+      address: "Dirección"
+      status: "Estado"
+      church: "Iglesia"
+      user: "Usuario"
+    member:
+      first_name: "Nombres"
+      middle_name: "Apellido paterno"
+      last_name: "Apellido materno"
+      date_of_birth: "Fecha de nacimiento"
+      cellphone: "Número de celular"
+      telephone: "Número de Teléfono"
+      address: "Dirección"
+      status: "Estado"
+      church: "Iglesia"
+    petition:
+      category: "Categoria"
+      title: "Motivo"
+      message: "mensaje"
+      status: "Estado"
+      church: "Iglesia"
+      user: "Usuario"
+    sub_event:
+      name: "Nombre"
+      description: "descripción"
+      sub_event_start_at: "Hora de inicio"
+      sub_event_end_at: "Hora de Finalización"
+      place: "Lugar"
+      event: "Evento"
+    user:
+      email: "Correo electrónico"
+      password: "Contraseña"
+      password_confirmation: "Confirme contraseña"
+      current_password: "Contraseña actual"
+      remember_me: "Recordarme mis datos"
+      role: "Rol"
+      username: "Nombre de Usuario"
+      first_name: "Nombres"
+      middle_name: "Apellido Paterno"
+      last_name: "Apellido Materno"
+      date_of_birth: "Fecha de Nacimiento"
+      gender: "Género"
+      genders:
+        male: "Masculino"
+        female: "Femenino"
+        f: "Femenino"
+        m: "Masculino"
+      address: "Dirección"
+      code_insured: "Nro. de Asegurado"
+      code_beneficiary: "Código de Beneficiario"
+      surnames: "Apellidos"
+      is_active: "Estado de cuenta"
+      login: "Email o Nombre de Usuario"
+  #VIEWS
+  application:
+    menu_vertical:
+      my_profile: "Mi Perfil"
+      settings: "Configuraciones"
+      users: "Usuarios"
+    delete_modal:
+      title: "Mensaje de confirmación"
+      accept: "Aceptar"
+      cancel: "Cancelar"
+    navbar:
+      log_out: "Cerrar session"
+  devise:
+    registrations:
+      edit:
+        leave_it_blank_if_you_do_not_want_to_change_it: "Dejar en blanco si no desea cambiarlo"
+        we_need_your_current_password_to_confirm_your_changes: "Necesitamos su contraseña actual para confirmar los cambios"
+        title: "Editando Perfil"
+  forms:
+    new:
+      title: "Nuevo Formulario"
+    edit:
+      title: "Editando formulario"
+    show:
+      title: "Mostrando Formulario"
+    index:
+      title: "Formularios"
+      subtitle: "Gestiona tus formularios de manera muy sencilla"
+      new: "Nuevo Formulario"
+    panel_sections_and_fields:
+      sections: "SECCIONES"
+      campos: "TIPO DE CAMPOS"
+      section: "SECCION"
+      text: "Texto"
+      number: "Número"
+      textarea: "Texto en párrafo"
+      select: "Menu desplegable"
+      radio: "Múltiples opciones"
+      checkbox: "Cas... de verificación"
+    panel_settings:
+      form: "FORMULARIO"
+      field: "CONF. CAMPO"
+      config_field: "Configuracion de campo"
+      config_options: "Configuracion de Opcion"
+  laboratories:
+    index:
+      title: "Laboratorios"
+      subtitle: "gestiona tus laboratorios, de forma simple y facil"
+    edit:
+      title: "Editando Laboratorio"
+    show:
+      title: "Detalles de laboratorio"
+  patients:
+    index:
+      new: "Nuevo Paciente"
+      title: "Pacientes"
+      subtitle: "Gestiona tus pacientes de forma sencilla y simple."
+    new:
+      title: "Nuevo Paciente"
+    edit:
+      title: "Editando Paciente"
+    show:
+      title: "Detalles"
+  reports:
+    index:
+      title: "Reportes"
+      new: "Nuevo Reporte"
+      subtitle: "Gestiona tus reportes de manera rápida"
+    new:
+      title: "Nuevo Reporte"
+    edit:
+      title: "Editando Reporte"
+    show:
+      title: "Detalles de Reportes"
+    patient:
+      title: "Vista Previa: Reportes de pacientes"
+    solicitude:
+      title: "Vista Previa: Reportes de Solicitudes"
+    test:
+      title: "Vista Previa: Reportes de Analisis"
+    user:
+      title: "Vista Previa: Reportes de usuarios"
+    patient_report:
+      title: "Reportes de Pacientes"
+    solicitude_report:
+      title: "Reportes de Solicitudes"
+    test_report:
+      title: "Reportes de Análisis"
+    user_report:
+      title: "Reportes de Usuarios"
+  solicitudes:
+    index:
+      title: "Solicitudes de Análisis"
+      subtitle: "Gestiona rapidamente tus solicitudes"
+      new: "Nueva Solicitud"
+      take_test: "Llenar examen"
+    new:
+      title: "Nueva Solicitud"
+    edit:
+      title: "Editando Solicitud"
+    show:
+      title: "Detalles"
+      take_test: "Llenar análisis"
+  staffs:
+    index:
+      title: "Usuarios"
+      new: "Nuevo Usuario"
+      subtitle: "Gestiona tus usuarios de manera rápida"
+    new:
+      title: "Nuevo Usuario"
+    edit:
+      title: "Editar Usuario"
+    show:
+      title: "Detalles"
+  tests:
+    index:
+      subtitle: "Busca de manera rápida tus resultados de análisis clínicos"
+      title: "Resultados de Análisis Clínicos"
+    show:
+      title: "Detalles"
+    new:
+      title: "Llenando Resultados"
+#CONTROLLERS
+  blog_created: "Blog creado correctamente!"
+  blog_updated: "Blog se ha actualizado correctamente!"
+  blog_destroyed: "Blog eliminado!"
+  church_created: "Iglesia creado correctamente!"
+  church_updated: "Iglesia se ha actualizado correctamente!"
+  church_destroyed: "Iglesia se ha eliminado!"
+  event_created: "Evento creado correctamente!"
+  event_updated: "Evento se ha actualizado correctamente!"
+  event_destroyed: "Evento se ha eliminado!"
+  meeting_created: "Reunión creado correctamente!"
+  meeting_updated: "Reunión se ha actualizado correctamente!"
+  meeting_destroyed: "Reunión se ha eliminado!"
+  member_created: "Miembro creado correctamente!"
+  member_updated: "Miembro se ha actualizado correctamente!"
+  member_destroyed: "Miembro se ha eliminado!"
+  petition_created: "Petición creado correctamente!"
+  petition_updated: "Petición se ha actualizado correctamente!"
+  petition_destroyed: "Petición se ha eliminado!"
+  sub_event_created: "Sub Evento creado correctamente!"
+  sub_event_updated: "Sub Evento se ha actualizado correctamente!"
+  sub_event_destroyed: "Sub Evento se ha eliminado!"
+
+  actions: "Acciones"
+  icon_show: "<i class='fa fa-eye'></i>"
+  icon_edit: "<i class='fa fa-edit'></i>"
+  icon_delete: "<i class='fa fa-times'></i>"
+  icon_back: "<i class='fa fa-caret-left'></i>"
+  icon_pdf: "<i class='fa fa-file-text'></i>"
+
+  title_show: "Más detalles"
+  title_edit: "Editar"
+  title_delete: "Eliminar"
+  title_back: "Atrás"
+  title_pdf: "Ver en PDF"
+
+  are_you_sure: "Está seguro?"
