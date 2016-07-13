@@ -10,8 +10,8 @@
     = f.input :vision
     = f.input :twitter_url
     = f.input :facebook_url
-    = f.input :image_prev_url
     = f.input :logo_cache, as: :hidden
+    = image_tag(@church.logo_url(:thumbnail))
     = f.input :logo
 
   .form-actions

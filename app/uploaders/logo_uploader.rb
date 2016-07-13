@@ -8,7 +8,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -40,7 +40,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   process :tags => ['logo_picture']
 
   version :standard do
-    process :resize_to_fill => [100, 150, :north]
+    process :resize_to_fill => [250, 250, :north]
   end
 
   version :thumbnail do
