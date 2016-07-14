@@ -1,88 +1,81 @@
-<section id="page-title" class="page-title-background" style="background-image: url('<%= "#{image_path('team-background.jpg')}" %>')">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="mainTitle title-white">Unificación de Iglesias Cristianas</h1>
-        <span class="mainDescription">
-          <% unless user_signed_in? %>
+<div class="jumbotron text-white" style="background-image: url('<%= "#{image_path('team-background.jpg')}" %>')">
+  <h1 class="text-muted">Unificación de Iglesias Cristianas</h1>
+  <p class="text-pink-shadow ">
+    "Yo en ellos, y tú en mí, para que sean perfectos en unidad, para que el mundo conozca que tú me enviaste, y que los
+    has amado a ellos como también a mí me has amado."
+    Juan 17:23
+  </p>
+  <p>
+    Aún no está tu iglesia? registralo ahora!.
+  </p>
+  <p>
+    <%= link_to "Registrar mi iglesia", new_registration_path(User), class: 'btn btn-lg btn-primary', role: "button" %>
+  </p>
+</div>
 
-              <p class="text-pink-shadow">
-                "Yo en ellos, y tú en mí, para que sean perfectos en unidad, para que el mundo conozca que tú me enviaste, y que los has amado a ellos como también a mí me has amado."
-                  Juan 17:23
-              </p>
-              <p>
-                Aún no está tu iglesia? registralo ahora!.<br>
-                <%= link_to "Registrar mi iglesia", new_registration_path(User), class: 'btn btn-lg btn-primary', role: "button" %>
-              </p>
-            <% end %>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="container-fluid container-fullw bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center" data-appears-class="fadeInUp" data-appears-delay="300">Nuestra Comunidad</h2>
-        <hr/>
-        <p data-appears-delay="300" data-appears-class="fadeInDown" class="text-center">
-          Creemos que Dios es nuestro Creador. Esta experiencia nos permite tomar conciencia de nuestro valor divino y
-          comprender nuestro lazo con las personas que nos rodean.
-          <br>
-          Por eso buscamos establecer un una relación muy personal con El, que alimenta nuestra capacidad de amar a los
-          demás y alcanzar nuestro potencial.
-        </p>
-        <div class="row">
-          <div data-appears-group-delay="0" data-appears-delay-increase="200">
-            <ul class="team-list list-unstyled">
-              <% Church.all.each do |church| %>
-                  <li class="col-sm-3">
-                    <div class="opacity-0" data-appears-class="fadeIn">
-                      <div class="thumb icons-effect margin-bottom-15">
-                        <div class="thumbnail">
-                          <% if church.logo_url.present? %>
-                              <%= image_tag church.logo_url(:standard), class: 'img-responsive'  %>
-                          <% else %>
-                              <%= image_tag 'logo.jpg', class: 'img-responsive' %>
-                          <% end %>
-                        </div>
-                        <div class="mask">
-                          <div class="icons-wrapper">
-                            <div class="icons">
-                              <% if church.twitter_url.present? %>
-                                  <a class="icon" href="<%= church.twitter_url %>" target="_blank">
-                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span>
-                                  </a>
-                              <% end %>
-                              <% if church.facebook_url.present? %>
-                                  <a class="icon" href="<%= church.facebook_url %>" target="_blank">
-                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span>
-                                  </a>
-                              <% end %>
 
-                            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center" data-appears-class="fadeInUp" data-appears-delay="300">Nuestra Comunidad</h2>
+      <hr/>
+      <p data-appears-delay="300" data-appears-class="fadeInDown" class="text-center">
+        Creemos que Dios es nuestro Creador. Esta experiencia nos permite tomar conciencia de nuestro valor divino y
+        comprender nuestro lazo con las personas que nos rodean.
+        <br>
+        Por eso buscamos establecer un una relación muy personal con El, que alimenta nuestra capacidad de amar a los
+        demás y alcanzar nuestro potencial.
+      </p>
+      <div class="row">
+        <div data-appears-group-delay="0" data-appears-delay-increase="200">
+          <ul class="team-list list-unstyled">
+            <% Church.all.each do |church| %>
+                <li class="col-sm-3">
+                  <div class="opacity-0" data-appears-class="fadeIn">
+                    <div class="thumb icons-effect margin-bottom-15">
+                      <div class="thumbnail">
+                        <% if church.logo_url.present? %>
+                            <%= image_tag church.logo_url(:standard), class: 'img-responsive' %>
+                        <% else %>
+                            <%= image_tag 'logo.jpg', class: 'img-responsive' %>
+                        <% end %>
+                      </div>
+                      <div class="mask">
+                        <div class="icons-wrapper">
+                          <div class="icons">
+                            <% if church.twitter_url.present? %>
+                                <a class="icon" href="<%= church.twitter_url %>" target="_blank">
+                                  <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span>
+                                </a>
+                            <% end %>
+                            <% if church.facebook_url.present? %>
+                                <a class="icon" href="<%= church.facebook_url %>" target="_blank">
+                                  <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span>
+                                </a>
+                            <% end %>
+
                           </div>
                         </div>
                       </div>
-                      <h3><%= church.name %></h3>
-                      <div class="text-small margin-bottom-5">
-                        <%= church.state %>
-                      </div>
-                      <div class="team-member-description">
-                        <p class="text-dark">
-                          <%= church.address %>
-                        </p>
-                      </div>
                     </div>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
+                    <h6><%= church.name %></h6>
+                    <div class="text-small margin-bottom-5">
+                      <%= church.state %>
+                    </div>
+                    <div class="team-member-description">
+                      <p class="text-dark">
+                        <%= church.address %>
+                      </p>
+                    </div>
+                  </div>
+                </li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+
 </section>
 
 

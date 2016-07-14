@@ -12,10 +12,12 @@ class ChurchesController < ApplicationController
   # GET /churches/1
   # GET /churches/1.json
   def show
+    @exist_coordinates = exist_coordinates?
   end
 
   # GET /churches/new
   def new
+    @exist_coordinates = exist_coordinates?
     @church = Church.new
   end
 
@@ -27,6 +29,8 @@ class ChurchesController < ApplicationController
   # POST /churches.json
   def create
     @church = Church.new(church_params)
+    @exist_coordinates = exist_coordinates?
+
 
     respond_to do |format|
       if @church.save
@@ -66,6 +70,10 @@ class ChurchesController < ApplicationController
       format.html { redirect_to churches_url, notice: I18n.t('church_destroyed') }
       format.json { head :no_content }
     end
+  end
+
+  def exist_coordinates?
+    @church.latitude? && @church.longitude?
   end
 
   private

@@ -12,15 +12,13 @@
  *
  *= require font-awesome
  *= require import_bootstrap
- *= require bower_components/animate.css/animate.min
- *= require bower_components/slick.js/slick/slick
- *= require bower_components/slick.js/slick/slick-theme
- *= require bower_components/swiper/dist/css/swiper.min
- *= require clip_assets/css/styles
- *= require clip_assets/css/plugins
+ *= require css/flat-ui
  *= require leaflet
  */
 
 .text-pink-shadow {
     text-shadow: 5px 5px 25px #ff00bc;
+}
+.text-white{
+    color: #FFF;
 }

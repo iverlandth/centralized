@@ -9,23 +9,41 @@
 </head>
 
 <body>
-<div id="app">
-  <!-- Fixed navbar -->
-  <%= render 'application/header' %>
 
-  <div class="app-content">
-    <div class="main-content">
-      <%= render 'application/messages' %>
-      <!-- Main component for a primary marketing message or call to action -->
-      <%= yield %>
-    </div>
+<!-- Fixed navbar -->
+<%= render 'application/header' %>
+
+<div class="container">
+
+  <div class="row row-offcanvas row-offcanvas-left">
+    <% if user_signed_in? && current_user.church_id.present? %>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <%= render 'application/sidebar' %>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <%= render 'application/messages' %>
+          <!-- Main component for a primary marketing message or call to action -->
+          <%= yield %>
+        </div>
+    <% else %>
+        <div class="col-xs-12 col-sm-12">
+          <%= render 'application/messages' %>
+          <!-- Main component for a primary marketing message or call to action -->
+          <%= yield %>
+        </div>
+    <% end %>
+
   </div>
+
+
 </div>
+<hr>
+<footer>
+  <p>© 2016 Company, Inc.</p>
+</footer>
+
 <script>
-  jQuery(document).ready(function () {
-    Main.init();
-    Team.init();
-  });
+
 </script>
 </body>
 </html>

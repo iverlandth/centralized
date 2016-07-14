@@ -1,88 +1,9 @@
-<section id="page-title" class="page-title-background" style="background-image: url('<%= "#{image_path('team-background.jpg')}" %>')">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="mainTitle title-white">Unificación de Iglesias Cristianas</h1>
-        <span class="mainDescription">
-        </span>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <h4>Bienvenido</h4>
   </div>
-</section>
-<section class="container-fluid container-fullw bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <% if user_signed_in? %>
-            <% if !current_user.church.present? %>
-                <h2> Ups aun no has creado tu iglesia:</h2>
+</div>
 
-                <% @church = Church.new %>
-                <h2>Crear mi Iglesia</h2>
-                <%= render 'churches/form' %>
-            <% end %>
-        <% end %>
-      </div>
-      <div class="col-md-12">
-        <h2 class="text-center" data-appears-class="fadeInUp" data-appears-delay="300">Nuestra Comunidad</h2>
-        <hr/>
-        <p data-appears-delay="300" data-appears-class="fadeInDown" class="text-center">
-          Creemos que Dios es nuestro Creador. Esta experiencia nos permite tomar conciencia de nuestro valor divino y
-          comprender nuestro lazo con las personas que nos rodean.
-          <br>
-          Por eso buscamos establecer un una relación muy personal con El, que alimenta nuestra capacidad de amar a los
-          demás y alcanzar nuestro potencial.
-        </p>
-        <div class="row">
-          <div data-appears-group-delay="0" data-appears-delay-increase="200">
-            <ul class="team-list list-unstyled">
-              <% Church.all.each do |church| %>
-                  <li class="col-sm-3">
-                    <div class="opacity-0" data-appears-class="fadeIn">
-                      <div class="thumb icons-effect margin-bottom-15">
-                        <div class="thumbnail">
-                          <% if church.logo_url.present? %>
-                              <%= image_tag church.logo_url(:standard), class: 'img-responsive' %>
-                          <% else %>
-                              <%= image_tag 'logo.jpg', class: 'img-responsive' %>
-                          <% end %>
-                        </div>
-                        <div class="mask">
-                          <div class="icons-wrapper">
-                            <div class="icons">
-                              <% if church.twitter_url.present? %>
-                                  <a class="icon" href="<%= church.twitter_url %>" target="_blank">
-                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span>
-                                  </a>
-                              <% end %>
-                              <% if church.facebook_url.present? %>
-                                  <a class="icon" href="<%= church.facebook_url %>" target="_blank">
-                                    <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span>
-                                  </a>
-                              <% end %>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <h3><%= church.name %></h3>
-                      <div class="text-small margin-bottom-5">
-                        <%= church.state %>
-                      </div>
-                      <div class="team-member-description">
-                        <p class="text-dark">
-                          <%= church.address %>
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
