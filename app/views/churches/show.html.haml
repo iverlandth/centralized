@@ -1,37 +1,37 @@
 - model_name = Church
 %section.container-fluid.container-fullw.bg-white
-  .container
-    .row
-      .col-md-12
-        %p
-          %b= model_name.human_attribute_name(:name)
-          = @church.name
-        %p
-          %b= model_name.human_attribute_name(:address)
-          = @church.address
-        %p
-          %b= model_name.human_attribute_name(:country)
-          = @church.country
-        %p
-          %b= model_name.human_attribute_name(:state)
-          = @church.state
-        %p
-          %b= model_name.human_attribute_name(:mission)
-          = @church.mission
-        %p
-          %b= model_name.human_attribute_name(:vision)
-          = @church.vision
-        %p
-          %b= model_name.human_attribute_name(:twitter_url)
-          = @church.twitter_url
-        %p
-          %b= model_name.human_attribute_name(:facebook_url)
-          = @church.facebook_url
-        %p
-          %b= model_name.human_attribute_name(:logo)
-          = image_tag(@church.logo_url(:thumbnail), :width => 50, :height => 50)
-        %p
-          #mapid{style: "width: 600px; height: 400px"}
+  .row
+    .col-md-6
+      %p
+        %b= model_name.human_attribute_name(:name)
+        = @church.name
+      %p
+        %b= model_name.human_attribute_name(:address)
+        = @church.address
+      %p
+        %b= model_name.human_attribute_name(:country)
+        = @church.country
+      %p
+        %b= model_name.human_attribute_name(:state)
+        = @church.state
+      %p
+        %b= model_name.human_attribute_name(:mission)
+        = @church.mission
+      %p
+        %b= model_name.human_attribute_name(:vision)
+        = @church.vision
+      %p
+        %b= model_name.human_attribute_name(:twitter_url)
+        = @church.twitter_url
+      %p
+        %b= model_name.human_attribute_name(:facebook_url)
+        = @church.facebook_url
+      %p
+        %b= model_name.human_attribute_name(:logo)
+        = image_tag(@church.logo_url(:thumbnail), :width => 50, :height => 50)
+    .col-md-6
+      %p
+        #mapid{style: "width: 100%; height: 400px"}
 
 = javascript_tag do
   exist_cordinates = #{@exist_coordinates};
@@ -42,7 +42,10 @@
   address = "#{@church.address}";
 :javascript
     if (exist_cordinates){
-      var mymap = L.map('mapid').setView([lat, lng], 17);
+      var mymap = L.map('mapid',{
+      scrollWheelZoom: false,
+      dragging: false
+      }).setView([lat, lng], 17);
 
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
         maxZoom: 18,

@@ -31,43 +31,50 @@
           <ul class="team-list list-unstyled">
             <% Church.all.each do |church| %>
                 <li class="col-sm-3">
-                  <div class="opacity-0" data-appears-class="fadeIn">
-                    <div class="thumb icons-effect margin-bottom-15">
-                      <div class="thumbnail">
-                        <% if church.logo_url.present? %>
-                            <%= image_tag church.logo_url(:standard), class: 'img-responsive' %>
-                        <% else %>
-                            <%= image_tag 'logo.jpg', class: 'img-responsive' %>
-                        <% end %>
-                      </div>
-                      <div class="mask">
-                        <div class="icons-wrapper">
-                          <div class="icons">
-                            <% if church.twitter_url.present? %>
-                                <a class="icon" href="<%= church.twitter_url %>" target="_blank">
-                                  <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span>
-                                </a>
+                  <%= link_to church_path(church) do %>
+                      <div class="opacity-0" data-appears-class="fadeIn">
+                        <div class="thumb icons-effect margin-bottom-15">
+                          <div class="thumbnail">
+                            <% if church.logo_url.present? %>
+                                <%= image_tag church.logo_url(:standard), class: 'img-responsive' %>
+                            <% else %>
+                                <%= image_tag 'logo.jpg', class: 'img-responsive' %>
                             <% end %>
-                            <% if church.facebook_url.present? %>
-                                <a class="icon" href="<%= church.facebook_url %>" target="_blank">
-                                  <span class="fa-stack fa-2x"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span>
-                                </a>
-                            <% end %>
-
+                          </div>
+                          <div class="mask">
+                            <div class="icons-wrapper">
+                              <div class="icons">
+                                <% if church.twitter_url.present? %>
+                                    <a class="icon" href="<%= church.twitter_url %>" target="_blank">
+                                      <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                    </a>
+                                <% end %>
+                                <% if church.facebook_url.present? %>
+                                    <a class="icon" href="<%= church.facebook_url %>" target="_blank">
+                                      <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                    </a>
+                                <% end %>
+                              </div>
+                            </div>
                           </div>
                         </div>
+                        <h6><%= church.name %></h6>
+                        <div class="text-small margin-bottom-5">
+                          <%= church.state %>
+                        </div>
+                        <div class="team-member-description">
+                          <p class="text-dark">
+                            <%= church.address %>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <h6><%= church.name %></h6>
-                    <div class="text-small margin-bottom-5">
-                      <%= church.state %>
-                    </div>
-                    <div class="team-member-description">
-                      <p class="text-dark">
-                        <%= church.address %>
-                      </p>
-                    </div>
-                  </div>
+                  <% end %>
                 </li>
             <% end %>
           </ul>

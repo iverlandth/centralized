@@ -23,6 +23,7 @@ class ChurchesController < ApplicationController
 
   # GET /churches/1/edit
   def edit
+    @exist_coordinates = exist_coordinates?
   end
 
   # POST /churches
@@ -51,6 +52,7 @@ class ChurchesController < ApplicationController
   # PATCH/PUT /churches/1
   # PATCH/PUT /churches/1.json
   def update
+    @exist_coordinates = exist_coordinates?
     respond_to do |format|
       if @church.update(church_params)
         format.html { redirect_to @church, notice: I18n.t('church_updated') }
@@ -73,7 +75,7 @@ class ChurchesController < ApplicationController
   end
 
   def exist_coordinates?
-    @church.latitude? && @church.longitude?
+    @church.latitude.present? && @church.longitude.present?
   end
 
   private
