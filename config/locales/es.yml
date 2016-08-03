@@ -250,13 +250,13 @@ es:
       other: "Reuniones"
     member:
       one: "Miembro"
-      other: "Mienbros"
+      other: "Miembros"
     petition:
       one: "Peticion"
       other: "peticiones"
     sub_event:
       one: "Sub evento"
-      other: "Sub enventos"
+      other: "Sub eventos"
     user:
       one: "Usuario"
       other: "Usuarios"
@@ -271,8 +271,8 @@ es:
     church:
       name: "Nombre"
       address: "Dirección"
-      mission: "Mision"
-      vision: "Vision"
+      mission: "Misión"
+      vision: "Visión"
       country: "Pais"
       state: "Departamento"
       latitude: "Latitud"
@@ -283,8 +283,8 @@ es:
     event:
       name: "Nombre del evento"
       description: "Descripción"
-      event_start_at: "Fecha de Inicion"
-      event_end_at: "FEcha de Finalización"
+      event_start_at: "Fecha de Inicio"
+      event_end_at: "Fecha de Finalización"
       address: "Lugar del evento"
       status: "Estado"
       church: "Iglesia"
@@ -312,13 +312,13 @@ es:
     petition:
       category: "Categoria"
       title: "Motivo"
-      message: "mensaje"
+      message: "Mensaje"
       status: "Estado"
       church: "Iglesia"
       user: "Usuario"
     sub_event:
       name: "Nombre"
-      description: "descripción"
+      description: "Descripción"
       sub_event_start_at: "Hora de inicio"
       sub_event_end_at: "Hora de Finalización"
       place: "Lugar"
