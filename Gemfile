@@ -10,7 +10,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
-gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -58,3 +58,11 @@ gem 'cancancan', '~> 1.12.0'
 gem 'country_select'
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'activeadmin', '~> 1.0.0.pre4'
+
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'ransack',             github: 'activerecord-hackery/ransack'
+gem 'draper',              '> 3.x'
+gem 'sass-rails',          github: 'rails/sass-rails' # For Sprockets 4
+

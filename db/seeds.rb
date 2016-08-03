@@ -19,3 +19,7 @@ unless User.all.to_a.present?
   Member.create(first_name: 'Organizer', middle_name: 'Yarden', gender: 'm', church: church_example, date_of_birth: Time.now - 1.year, user: organizer)
 
 end
+
+unless AdminUser.all.to_a.present?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
